@@ -14,7 +14,7 @@ function inserirIngrediente($nome, $tipo, $imagem) {
     $stmt = $mysqli->prepare("
         INSERT INTO tb_ingredientes 
         (nome, tipo, imagem) 
-        VALUES (?, ?)
+        VALUES (?, ?, ?)
     ");
     $stmt->bind_param("sss", $nome, $tipo, $imagem);
     $stmt->execute();

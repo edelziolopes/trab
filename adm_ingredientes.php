@@ -10,23 +10,23 @@ if (isset($_GET['acao'])) {
             $imagem = $_POST['txt_imagem'] ?? null;
             if ($nome && $tipo && $imagem) {
                 inserirIngrediente($nome, $tipo, $imagem);
-                header('Location: index.php');
+                header('Location: ingredientes.php');
                 exit;
             }
         }
-        header('Location: index.php');
+        header('Location: ingredientes.php');
         exit;
     }
     if ($acao === 'deletar') {
         $id = $_GET['id'] ?? null;
         if ($id) {
             excluirIngrediente($id);
-            header('Location: index.php');
+            header('Location: ingredientes.php');
             exit;
         }
-        header('Location: index.php');
+        header('Location: ingredientes.php');
         exit;
     }
 }
-header('Location: index.php');
+header('Location: ingredientes.php');
 exit;

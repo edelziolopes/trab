@@ -10,18 +10,18 @@
 <div class="container mt-5">
   <h2 class="mb-4">Cadastro de Ingredientes</h2>
 
-  <form class="row g-3 mb-5">
-    <div class="col-md-5">
+  <form method="post" action="adm_ingredientes.php?acao=inserir" class="row g-3 mb-5">
+    <div class="col-12">
       <label for="nome" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Tomate">
+      <input type="text" class="form-control" id="nome" name="txt_nome" placeholder="Ex: Tomate">
     </div>
-    <div class="col-md-4">
+    <div class="col-12">
       <label for="tipo" class="form-label">Tipo</label>
-      <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Ex: Legume">
+      <input type="text" class="form-control" id="tipo" name="txt_tipo" placeholder="Ex: Legume">
     </div>
-    <div class="col-md-3">
+    <div class="col-12">
       <label for="imagem" class="form-label">Imagem</label>
-      <input type="file" class="form-control" id="imagem" name="imagem">
+      <input type="text" class="form-control" id="imagem" name="txt_imagem">
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Adicionar Ingrediente</button>
