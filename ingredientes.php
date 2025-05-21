@@ -1,3 +1,8 @@
+<?php
+require_once 'banco.php';
+$ingredientes = listarIngrediente();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,24 +37,26 @@
   <table class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
-        <th>Imagem</th>
+        <th>id</th>
         <th>Nome</th>
         <th>Tipo</th>
-        <th>Ação</th>
+        <th>Imagem</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <?php if (empty($array)): ?>
+      <?php if (empty($ingredientes)): ?>
       <tr>
           <td colspan="3" class="text-center">Nenhuma categoria</td>
       </tr>
       <?php else: ?>
-        <?php foreach ($categorias as $categoria): ?>
+        <?php foreach ($ingredientes as $ingrediente): ?>
         <tr>
-            <td><img src="<?php echo $categoria['id']; ?>" class="rounded"></td>
-            <td><?php echo $categoria['nome']; ?></td>
-            <td><?php echo $categoria['descricao']; ?></td>
-            <td><a class="btn btn-danger btn-sm" href="adm_cat.php?id=<?php echo $categoria['id']; ?>">Excluir</a></td>
+            <td><img src="<?php echo $ingrediente['id']; ?>" class="rounded"></td>
+            <td><?php echo $ingrediente['nome']; ?></td>
+            <td><?php echo $ingrediente['tipo']; ?></td>
+            <td><?php echo $ingrediente['imagem']; ?></td>
+            <td><a class="btn btn-danger btn-sm" href="adm_ingredientes.php?acao=deletar&id=<?php echo $ingrediente['id']; ?>">Excluir</a></td>
         </tr>
         <?php endforeach; ?>
       <?php endif; ?>
