@@ -52,7 +52,7 @@ $ingredientes = listarIngrediente();
       <?php else: ?>
         <?php foreach ($ingredientes as $ingrediente): ?>
         <tr>
-            <td><img src="<?php echo $ingrediente['id']; ?>" class="rounded"></td>
+            <td><?php echo $ingrediente['id']; ?></td>
             <td><?php echo $ingrediente['nome']; ?></td>
             <td><?php echo $ingrediente['tipo']; ?></td>
             <td><?php echo $ingrediente['imagem']; ?></td>
