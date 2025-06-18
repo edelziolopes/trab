@@ -1,46 +1,51 @@
 <?php
 function conectar() {
-    $mysqli = new mysqli(
-        "localhost", "root", "", "trabalho"
-    );    
+    $mysqli = new mysqli("localhost", "root", "", "projeto");     
     if ($mysqli->connect_error) {
         die("Falha: ".$mysqli->connect_error);
     }    
     return $mysqli;
 }
 
-function inserirIngrediente($nome, $tipo, $imagem) {
+function inserirUsuario($nome, $email, $senha, $foto) {
     $mysqli = conectar();
     $stmt = $mysqli->prepare("
-        INSERT INTO tb_ingredientes 
-        (nome, tipo, imagem) 
-        VALUES (?, ?, ?)
-    ");
-    $stmt->bind_param("sss", $nome, $tipo, $imagem);
+        INSERT INTO tb_usuario (nome, email, senha, foto) 
+        VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $nome, $email, $senha, $foto);
     $stmt->execute();
     $stmt->close();
     $mysqli->close();
 }
-function excluirIngrediente($id) {
+function listarUsuario() {
     $mysqli = conectar();
-    $stmt = $mysqli->prepare("
-    DELETE FROM tb_ingredientes WHERE id = ?");
-    $stmt->bind_param("i", $id);    
-    $stmt->execute();   
-    $stmt->close();
-    $mysqli->close();
-}
-function listarIngrediente() {
-    $mysqli = conectar();
-    $sql = "SELECT id, nome, tipo, imagem 
-    FROM tb_ingredientes";
+    $sql = "SELECT * FROM tb_usuario";
     $result = $mysqli->query($sql);
-    $categorias = [];
+    $array = [];
     while ($row = $result->fetch_assoc()) {
-        $categorias[] = $row;
+        $array[] = $row;
     }
     $mysqli->close();
-    return $categorias;
+    return $array;
+}
+
+if (isset($_GET['acao'])) {
+    $acao = $_GET['acao'];
+    if ($acao === 'inserirUsuario') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nome = $_POST['txt_nome'] ?? null;
+            $email = $_POST['txt_email'] ?? null;
+            $senha = $_POST['txt_senha'] ?? null;
+            $foto = $_POST['txt_foto'] ?? null;
+            if ($nome && $email && $senha && $foto) {
+                inserirUsuario($nome, $email, $senha, $foto);
+                header('Location: index.php');
+                exit;
+            }
+        }
+        header('Location: index.php');
+        exit;
+    }
 }
 
 ?>
