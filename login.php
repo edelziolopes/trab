@@ -32,7 +32,7 @@
     }
 
     .register-link a {
-      text-decoration: none;
+      text-de   coration: none;
       color: #007bff;
     }
 
@@ -44,15 +44,15 @@
 <body>
   <div class="card">
     <h2>Login</h2>
-    <form action="validar_login.php" method="POST">
+    <form action="banco.php?acao=loginUsuario" method="POST">
       <div class="mb-3">
         <label for="email" class="form-label">E-mail</label>
-        <input type="email" name="email" id="email" class="form-control" required>
+        <input type="email" name="txt_email" id="email" class="form-control" required>
       </div>
 
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" name="senha" id="senha" class="form-control" required>
+        <input type="password" name="txt_senha" id="senha" class="form-control" required>
       </div>
 
       <button type="submit" class="btn btn-primary w-100">Entrar</button>

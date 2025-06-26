@@ -61,20 +61,20 @@
 <body>
   <div class="card">
     <h2>Cadastro de Usuário</h2>
-    <form action="salvar_usuario.php" method="POST">
+    <form action="banco.php?acao=inserirUsuario" method="POST">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
-        <input type="text" name="nome" id="nome" class="form-control" required>
+        <input type="text" name="txt_nome" id="nome" class="form-control" required>
       </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">E-mail</label>
-        <input type="email" name="email" id="email" class="form-control" required>
+        <input type="email" name="txt_email" id="email" class="form-control" required>
       </div>
 
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" name="senha" id="senha" class="form-control" required>
+        <input type="password" name="txt_senha" id="senha" class="form-control" required>
       </div>
 
       <div class="mb-3">
@@ -82,7 +82,7 @@
         <div class="d-flex flex-wrap justify-content-between gap-2">
           <!-- Avatar 1 -->
           <div>
-            <input type="radio" id="avatar1" name="foto" value="user" required>
+            <input type="radio" id="avatar1" name="txt_foto" value="user" required>
             <label for="avatar1" class="icon-option">
               <i class="fas fa-user"></i>
             </label>
@@ -90,7 +90,7 @@
 
           <!-- Avatar 2 -->
           <div>
-            <input type="radio" id="avatar2" name="foto" value="user-tie">
+            <input type="radio" id="avatar2" name="txt_foto" value="user-tie">
             <label for="avatar2" class="icon-option">
               <i class="fas fa-user-tie"></i>
             </label>
@@ -98,7 +98,7 @@
 
           <!-- Avatar 3 -->
           <div>
-            <input type="radio" id="avatar3" name="foto" value="user-ninja">
+            <input type="radio" id="avatar3" name="txt_foto" value="user-ninja">
             <label for="avatar3" class="icon-option">
               <i class="fas fa-user-ninja"></i>
             </label>
@@ -106,7 +106,7 @@
 
           <!-- Avatar 4 -->
           <div>
-            <input type="radio" id="avatar4" name="foto" value="user-astronaut">
+            <input type="radio" id="avatar4" name="txt_foto" value="user-astronaut">
             <label for="avatar4" class="icon-option">
               <i class="fas fa-user-astronaut"></i>
             </label>
@@ -114,7 +114,7 @@
 
           <!-- Avatar 5 -->
           <div>
-            <input type="radio" id="avatar5" name="foto" value="user-secret">
+            <input type="radio" id="avatar5" name="txt_foto" value="user-secret">
             <label for="avatar5" class="icon-option">
               <i class="fas fa-user-secret"></i>
             </label>
@@ -122,7 +122,7 @@
 
           <!-- Avatar 6 -->
           <div>
-            <input type="radio" id="avatar6" name="foto" value="user-graduate">
+            <input type="radio" id="avatar6" name="txt_foto" value="user-graduate">
             <label for="avatar6" class="icon-option">
               <i class="fas fa-user-graduate"></i>
             </label>
